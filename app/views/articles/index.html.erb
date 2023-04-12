@@ -1,0 +1,19 @@
+<h1 align="center">Listing all recipes</h1>
+<% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="center">
+        
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= link_to article.name, article_path(article) %></h4>
+      <p><%= truncate(article.description, length: 150) %></p>
+      <p>
+        <span class="quiet"><small>criado
+
+        <%= time_ago_in_words(article.created_at) %> atras</small></span>
+      </p> 
+    </div>
+  </div>
+<% end %>
