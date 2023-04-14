@@ -5,6 +5,10 @@ ruby "3.0.6"
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'will_paginate', '~> 3.3'
+
+gem 'bootstrap-will_paginate', '0.0.10'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
@@ -31,6 +35,10 @@ gem "cssbundling-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "api_pagination_headers"
+
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
