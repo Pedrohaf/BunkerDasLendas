@@ -1,7 +1,7 @@
 <% obj.each do |article| %>
   <div class="row">
     <div class="col-md-2">
-      <section class="chef_info center">
+      <section class="user_info center">
         <%= gravatar_for(article.user, size: 120) %>
       </section>
     </div>
@@ -9,9 +9,16 @@
       <h4><%= link_to article.name, article_path(article) %></h4>
       <p><%= truncate(article.description, length: 150) %></p>
       <p>
-        <span class="quiet"><small>Created 
-        <%= time_ago_in_words(article.created_at) %> atras</small></span>
-      </p> 
+        <span class="quiet"><small>Created <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.username.capitalize %>
+      </p>
+      <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+        <div class="article-actions">
+          <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-warning" %>
+          <%= link_to "Delete this article", article_path(article), method: :delete,
+                                        data: { confirm: "Are you sure you want to delete this article?" },
+                                        class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
