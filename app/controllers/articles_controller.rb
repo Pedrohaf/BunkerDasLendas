@@ -7,6 +7,9 @@ class ArticlesController < ApplicationController
     end
     
     def show
+
+      @comments = @article.comments.paginate(page: params[:page], 
+        per_page: 5)
       
     end
     
@@ -51,7 +54,7 @@ class ArticlesController < ApplicationController
       end
     
       def article_params
-        params.require(:article).permit(:name, :description)
+        params.require(:article).permit(:name, :description, :topics_ids: [])
       end
       
       def article_same_user

@@ -27,4 +27,39 @@
       <%= link_to "Return to articles listing", articles_path, class: "btn btn-xs btn-primary" %>
     </div>
   </div>
+
+  <div class="row">
+  <div class="row col-md-8 col-md-offset-2">
+    <%= link_to like_article_path(@article, like: true), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i> 
+    <% end %> <%= @article.thumbs_up_total %> || 
+    <%= link_to like_article_path(@article, like: false), method: :post do %>
+      <i class="glyphicon glyphicon-thumbs-down"></i>
+    <% end %> <%= @article.thumbs_down_total %>
+  </div>
+</div>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Comments: </h3>
+      <hr />
+      <%= form_for([@article, @comment], remote: true, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <div class="form-group">
+          <div class="control-label col-md-2">
+            <%= f.label :description, "Comment" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_area :description, rows: 8, class: "form-control", placeholder: "Enter Comment Here" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <%= f.submit "Submit Comment", class: "btn btn-primary btn-lg btn-xlarge" %>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+    </div>
+  </div>
+<% end %>
   
