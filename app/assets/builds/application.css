@@ -594,6 +594,7 @@ progress {
 .img-fluid {
   max-width: 100%;
   height: auto;
+  
 }
 
 .img-thumbnail {
@@ -18581,9 +18582,11 @@ textarea.form-control-lg {
 }
 
 .img {
-  background-image: url("../images/img1.jpg");
-  
+  background-image: url("./img1.jpg");
+  color: black;
 }
+
+
 
 .jumbotron h1 {
   text-align: center;

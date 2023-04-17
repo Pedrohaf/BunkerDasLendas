@@ -18,9 +18,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#delete'
 
   resources :topics, except: [:destroy]
-
-  mount ActionCable.server => '/cable'
-  get '/chat', to: 'chatrooms#show'
   
   resources :messages, only: [:create]
   
