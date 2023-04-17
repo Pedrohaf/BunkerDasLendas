@@ -1,13 +1,7 @@
 <%= render 'shared/page_title', title: "#{@topic.name}" %>
 <% if @topic.articles.count != 0 %>
   <h4 align="center">artigos <%= @topic.name %></h4>
-  <div align="center">
-    <%= will_paginate @topic_articles %>
-  </div>
   <%= render 'articles/article', obj: @topic_articles %>
-  <div align="center">
-    <%= will_paginate @topic_articles %>
-  </div>
 <% else %>
   <h4 align="center">artigo não criado!</h4>
 <% end %>

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-    before_action :require_user, except: [:index, :show]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     before_action :require_admin, only: [:destroy]
-
+  
     def index
       @users = User.all
       
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def show 
-      @user = User.find(params[:id])
+      @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
       
     end
 
@@ -50,18 +50,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def require_same_user
-      if current_user != @article.user and !current_user.admin?
-        flash[:danger] = "vc so pode editar e excluir seus propios artigos"
-        redirect_to articles_path
-      end  
-    end
-
-    def require_admin
-      if logged_in? & !current_user.admin?
-      flash[:danger] = "Apenas o administrador pode fazer isto"
-      redirect_to root_path
-    end
+    
     
       
   
@@ -72,7 +61,23 @@ class UsersController < ApplicationController
     private 
       def user_params
         params.require(:user).permit(:username, :email, :password, :password_confirmation)
-        
       end
+      def require_same_user
+        if current_user != @article.user and !current_user.admin?
+          flash[:danger] = "vc so pode editar e excluir seus propios artigos"
+          redirect_to articles_path
+        end  
+      end
+
+      def set_user
+        @user = User.find(params[:id])
+      end
+  
+      def require_admin
+        if logged_in? & !current_user.admin?
+        flash[:danger] = "Apenas o administrador pode fazer isto"
+        redirect_to root_path
+      end
+    end    
       
 end

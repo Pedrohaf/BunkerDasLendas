@@ -32,10 +32,10 @@
   <div class="row col-md-8 col-md-offset-2">
     <%= link_to like_article_path(@article, like: true), method: :post do %>
       <i class="glyphicon glyphicon-thumbs-up"></i> 
-    <% end %> <%= @article.thumbs_up_total %> || 
+    <% end %>|| 
     <%= link_to like_article_path(@article, like: false), method: :post do %>
       <i class="glyphicon glyphicon-thumbs-down"></i>
-    <% end %> <%= @article.thumbs_down_total %>
+    <% end %> 
   </div>
 </div>
 <% if logged_in? %>

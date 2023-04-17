@@ -1,40 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #248510;">
+<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #192835;">
   <%= link_to "BunkerDasLendas", root_path, class: "navbar-brand", id: "logo" %>
 
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">
       <ul class="nav navbar-nav">
-        <li><%= link_to "users", users_path %></li>
-        <li><%= link_to "All articles", articles_path %></li>
+        <li><%= link_to "Usuarios", users_path,{:style=>'color:#566573; 
+                                                          text-decoration:none;
+                                                          padding: 50px;
+                                                          margin-left:200px;' }%></li>
+        <li><%= link_to "Artigos", articles_path, {:style=>'color:#566573; 
+                                                          text-decoration:none;
+                                                          padding-right: 50px;' } %></li>
         <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">articles <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Create a new article", new_article_path %></li>
-            </ul>
-          </li>
+          <%= link_to "Novo artigo", new_article_path, {:style=>'color:#566573; 
+                                                          text-decoration:none;
+                                                          padding-right: 50px;' } %>
         <% end %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingredients <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          </ul>
-        </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul style="" class="nav navbar-nav navbar-right link">
         <% if logged_in? %>
-          <ul>
-            <li><%= link_to "Log out", sessions_path, method: :delete %></li>
-          </ul>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username.capitalize %>'s Profile <%= "Admin" if current_user.admin? %><span class="caret"></span></a>
+            <a style="color:#566573; text-decoration:none; padding-right: 10px;"href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username.capitalize %> Perfil<%= "Admin" if current_user.admin? %><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "View your profile", user_path(current_user) %></li>
               <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
             </ul>
+            <ul>
+            <li><%= link_to "Log out", sessions_path, method: :delete %></li>
+          </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>  
+          <li><%= link_to "Log in", login_path, {:style=>'color:#566573; 
+                                                          text-decoration:none;
+                                                          padding-right: 50px;' }%></li>  
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -17,8 +17,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#delete'
 
-  resources :articles do
-  resources :comments, only: [:create]
+  resources :topics, except: [:destroy]
+
+  mount ActionCable.server => '/cable'
+  get '/chat', to: 'chatrooms#show'
   
+  resources :messages, only: [:create]
   
 end

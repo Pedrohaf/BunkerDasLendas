@@ -1,0 +1,13 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.jumbotron {
+    background-image: asset-url('../');
+    background-size: cover;
+    height: 300px;
+  }
+.img{
+  background-color: red !important;
+}
+
+  
