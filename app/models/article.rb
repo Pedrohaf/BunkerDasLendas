@@ -4,4 +4,5 @@ class Article < ApplicationRecord
     belongs_to :user
     has_many :article_topics
     has_many :topics, through: :article_topics
+    has_many :comments, dependent: :destroy
 end
