@@ -30,8 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_064858) do
     t.text "description"
     t.integer "user_id"
     t.integer "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "recipes", force: :cascade do |t|

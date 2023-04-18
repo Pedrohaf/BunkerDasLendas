@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    skip_before_action :verify_authenticity_token
     before_action :require_user
     
     def create
@@ -6,8 +7,9 @@ class CommentsController < ApplicationController
       @comment = @article.comments.build(comment_params)
       @comment.user = current_user
       if @comment.save
-        flash[:success] = "Comment was created successfully"
-        redirect_to article_path(@article)
+        ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
+        # flash[:success] = "Comment was created successfully"
+        # redirect_to article_path(@article)
       else
         flash[:danger] = "Comment was not created"
         redirect_to :back
@@ -20,4 +22,4 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:description)
     end
     
-  end    
+  end

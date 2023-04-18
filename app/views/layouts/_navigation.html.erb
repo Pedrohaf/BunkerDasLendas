@@ -19,14 +19,14 @@
       <ul style="" class="nav navbar-nav navbar-right link">
         <% if logged_in? %>
           <li class="dropdown">
-            <a style="color:#566573; text-decoration:none; padding-right: 10px;"href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username.capitalize %> Perfil<%= "Admin" if current_user.admin? %><span class="caret"></span></a>
+            <a style="color:#566573; text-decoration:none; padding-right: 10px; margin-left:400px"href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username.capitalize %> Perfil<%= " Admin" if current_user.admin? %><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "View your profile", user_path(current_user) %></li>
               <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
             </ul>
-            <ul>
+            <ul style="margin-left:420px">
             <li><%= link_to "Log out", sessions_path, method: :delete %></li>
           </ul>
           </li>
