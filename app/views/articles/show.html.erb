@@ -47,12 +47,29 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-md-offset-2 col-md-10" style="padding-bottom:5px;">
+          <div class="col-md-offset-2 col-md-10" style="padding:10px;">
             <%= f.submit "Enviar", class: "btn btn-primary btn-lg btn-xlarge" %>
           </div>
         </div>
       <% end %>
       <hr />
+    </div>
+  </div>
+<% end %>
+
+<% if @article.comments != 0 %>
+  <div class="row" style="margin-bottom:50px;">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Comentarios </h3>
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Sem comentarios ainda</h3>
     </div>
   </div>
 <% end %>

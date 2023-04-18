@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
     
     def show
       @comment = Comment.new
+      @comments = Comment.all
       
     end
     
@@ -61,7 +62,7 @@ class ArticlesController < ApplicationController
       def article_same_user
         if current_user != @article.user
           flash[:danger] = "voce so pode atualizar ou deletar seus artigos"
-          redirect_to recipes_path
+          redirect_to articles_path
         end  
       end
   end
