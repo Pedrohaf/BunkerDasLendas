@@ -10,7 +10,7 @@
           <li><small><%= pluralize(user.articles.count, "Artigos") if user.articles %>
           <% if logged_in? and current_user.admin? && !user.admin %>
             <li>
-              <%= link_to "Deletar o usuário", user_path(user), method: :delete, data: { turbo_method: :delete } %></li>
+              <%= link_to "Deletar o usuário", user_path(user), data: {turbo_method: :delete, turbo_confirm: 'Voce deseja deletar todos os artigos e esse usuario ?' } %></li>
           <%end%>
             </small></li>
         </div>

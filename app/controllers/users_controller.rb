@@ -45,26 +45,20 @@ class UsersController < ApplicationController
     def destroy
       if !@user.admin?
         @user.destroy 
-        flash[:danger] = "todos os artigos desse usuario seram apaados"
+        flash[:danger] = "todos os artigos desse usuario seram apagados"
         redirect_to users_path
       end
     end
-
     
-    
-      
-  
-  
-
-
-
     private 
       def user_params
         params.require(:user).permit(:username, :email, :password, :password_confirmation)
       end
+
+
       def require_same_user
-        if current_user != @article.user and !current_user.admin?
-          flash[:danger] = "vc so pode editar e excluir seus propios artigos"
+        if current_user != @user and !current_user.admin?
+          flash[:danger] = "voce so pode editar e excluir artigos do seu perfil"
           redirect_to articles_path
         end  
       end
