@@ -18583,16 +18583,20 @@ textarea.form-control-lg {
 
 .img {
   background-image: url("./img1.jpg");
+  background-size: cover;
+  font-size: 20px;
   color: black;
 }
 
 .img2{
   background-image: url("./illaoi.jpg");
+  background-size: cover;
   width: 100;
   height: 400px;
   color: wheat;
   margin-bottom: 100px;
   text-align: justify;
+  font-size: 20px;
 }
 
 .img3{
@@ -18601,7 +18605,12 @@ textarea.form-control-lg {
   height: 400px;
   color: wheat;
   margin-bottom: 50px;
-  text-align: justify;
+  text-align: center;
+}
+
+.img3 p{
+  margin-left: 200px;
+  font-size: 20px;
 }
 
 .jumbotron h1 {
@@ -18621,6 +18630,15 @@ textarea.form-control-lg {
 btn-xlarge {
   background-color: pick_a_color_of_choice;
 
+}
+
+.user_index_{
+  width: 300px;
+  height: 150px;
+  border-radius: 20px;
+  padding-top: 15px;
+  border-left: 1px solid white;
+  background-color: #ebe0f1;
 }
 
 .description {

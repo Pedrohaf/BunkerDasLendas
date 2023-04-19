@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        flash[:success] = "bem vido #{@user.username} ao Blog das lendas"
+        flash[:success] = "Bem Nindo #{@user.username} ao Blog das lendas"
         redirect_to user_path(@user)
       else
         render 'new'
@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     end
 
     def edit
-      @user = User.find(params[:id])
     end
 
     def update
