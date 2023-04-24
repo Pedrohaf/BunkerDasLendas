@@ -1,12 +1,12 @@
 <% obj.each do |article| %>
-  <div class="row">
+  <div class="row article_index_ img_fundo" >
     <div class="col-md-2">
       <section class="user_info center" style="padding-top:20px;">
         <%= gravatar_for(article.user, size: 120) %>
       </section>
     </div>
-    <div class="col-md-8 well"style="padding-top:30px;">
-      <h4><%= link_to article.name, article_path(article) %></h4>
+    <div class="col-md-8 well "style="padding-top:30px;">
+      <h4><%= link_to article.name, article_path(article), {style: 'text-decoration:none; color:white; text-transform: uppercase;'} %></h4>
       <p><%= truncate(article.description, length: 150) %></p>
       <p>
         <span class="quiet"><small>Criado à <%= time_ago_in_words(article.created_at) %> atras por <%= article.user.username.capitalize %> </small></span>

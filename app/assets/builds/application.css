@@ -18641,6 +18641,22 @@ btn-xlarge {
   background-color: #ebe0f1;
 }
 
+.article_index_{
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 15px;
+  border-left: 1px solid white;
+  background-color: #ebe0f1;
+}
+
+.img_fundo{
+  background-image: url("./fundo.jpg");
+  background-size: cover;
+  color: white;
+  font-size: 20px;
+  text-decoration: None;
+}
+
 .description {
   margin-top: 0;
 }
